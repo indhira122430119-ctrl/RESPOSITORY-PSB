@@ -13,20 +13,19 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
-  background: #f4f6f8;
+  background: linear-gradient(180deg,#f4f6f8,#eef1f5);
   color: #333;
+  line-height: 1.8;
 }
 
-/* HERO / POSTER */
 header {
   min-height: 100vh;
-  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
-              url('images/hasil-prototipe.png') center/cover;
+  background: linear-gradient(135deg,#0f4c81,#08375f);
   color: white;
   display: flex;
   align-items: center;
   text-align: center;
-  padding: 0 20px;
+  padding: 40px 20px;
 }
 
 .hero {
@@ -36,89 +35,42 @@ header {
 
 .hero h1 {
   font-size: 3rem;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1.15rem;
 }
 
-/* NAV */
 nav {
+  position: sticky;
+  top: 0;
   background: #08375f;
   padding: 12px;
   text-align: center;
-  position: sticky;
-  top: 0;
   z-index: 999;
 }
 
 nav a {
   color: white;
-  margin: 0 12px;
+  margin: 0 14px;
   text-decoration: none;
   font-weight: 600;
 }
 
-/* SECTION */
 section {
-  max-width: 1100px;
-  margin: 50px auto;
+  max-width: 1000px;
+  margin: 60px auto;
   background: white;
-  padding: 60px 40px;
+  padding: 60px 45px;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-}
-
-/* ANIMATION */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: all 1s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
+  box-shadow: 0 12px 35px rgba(0,0,0,.08);
 }
 
 h2 {
   color: #0f4c81;
-  font-size: 2rem;
-}
-
-img {
-  width: 100%;
-  border-radius: 14px;
-  margin: 30px 0;
-}
-
-.caption {
-  text-align: center;
-  font-size: .9rem;
-  color: #666;
-}
-
-/* HIGHLIGHT BOX */
-.stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-  gap: 20px;
-  margin-top: 30px;
-}
-
-.stat {
-  background: #08375f;
-  color: white;
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.stat h3 {
-  font-size: 2rem;
-  margin: 0;
+  font-size: 2.1rem;
+  margin-bottom: 25px;
 }
 
 footer {
@@ -126,6 +78,7 @@ footer {
   color: white;
   text-align: center;
   padding: 30px;
+  margin-top: 60px;
 }
 </style>
 </head>
@@ -133,114 +86,173 @@ footer {
 <body>
 
 <header>
-  <div class="hero reveal">
+  <div class="hero">
     <h1>Sistem Deteksi Pembuluh Vena Manusia</h1>
     <p>
-      Berbasis Citra Inframerah dan Pemrosesan Digital Terintegrasi<br>
-      <strong>Capstone Design Teknik Biomedis</strong>
+      Berbasis Citra Inframerah dan Pemrosesan Digital Terintegrasi<br><br>
+      <strong>Capstone Design Program Studi Teknik Biomedis</strong><br>
+      Institut Teknologi Sumatera
     </p>
-    <p>
-      Indhira Dian Mustika (122430119) •
-      Atha Azarine (122430046) •
-      Axel Lerian Asriya
+    <p style="margin-top:25px">
+      Indhira Dian Mustika (122430119) ·
+      Atha Azarine (122430046) ·
+      Axel Lerian Asriya (122430111)
     </p>
   </div>
 </header>
 
 <nav>
-  <a href="#pengantar">Pengantar</a>
+  <a href="#pendahuluan">Pendahuluan</a>
+  <a href="#tujuan">Tujuan</a>
+  <a href="#konsep">Konsep Sistem</a>
   <a href="#implementasi">Implementasi</a>
-  <a href="#algoritma">Algoritma</a>
   <a href="#analisis">Analisis</a>
-  <a href="#hasil">Hasil</a>
+  <a href="#kesimpulan">Kesimpulan</a>
 </nav>
 
-<section id="pengantar" class="reveal">
-<h2>1. Pengantar</h2>
+<section id="pendahuluan">
+<h2>1. Pendahuluan</h2>
+
 <p>
-Sistem ini dikembangkan untuk membantu prosedur venipuncture
-dengan memvisualisasikan pembuluh vena secara non-invasif
-menggunakan pencitraan Near-Infrared (NIR).
+Prosedur venipuncture atau pengambilan darah merupakan salah satu tindakan medis
+yang paling sering dilakukan dalam pelayanan kesehatan. Prosedur ini menjadi bagian
+krusial dalam proses diagnosis, pemantauan kondisi pasien, serta evaluasi terapi
+medis. Meskipun bersifat rutin, venipuncture masih sering menghadapi berbagai
+kendala teknis, terutama pada pasien dengan akses vena yang sulit.
+</p>
+
+<p>
+Pasien lansia, anak-anak, penderita obesitas, serta individu dengan pigmentasi kulit
+gelap sering kali memiliki pembuluh vena yang tidak mudah terlihat maupun diraba.
+Kondisi tersebut meningkatkan risiko kegagalan tusukan, yang dapat berujung pada
+tusukan berulang. Selain menimbulkan rasa nyeri dan ketidaknyamanan, tusukan berulang
+juga berpotensi menyebabkan komplikasi seperti hematoma, infeksi, serta trauma
+psikologis bagi pasien.
+</p>
+
+<p>
+Seiring dengan perkembangan teknologi biomedis, pendekatan berbasis pencitraan
+Near-Infrared (NIR) mulai banyak dikembangkan sebagai solusi non-invasif untuk
+visualisasi pembuluh vena. Pada panjang gelombang inframerah tertentu, darah vena
+memiliki karakteristik absorpsi cahaya yang lebih tinggi dibandingkan jaringan
+sekitarnya, sehingga memungkinkan pembuluh vena divisualisasikan dengan kontras
+yang lebih baik.
+</p>
+
+<p>
+Berdasarkan latar belakang tersebut, proyek Capstone Design ini berfokus pada
+perancangan dan implementasi sistem deteksi pembuluh vena manusia berbasis citra
+inframerah dengan pemrosesan digital terintegrasi. Sistem ini diharapkan dapat
+menjadi alat bantu medis yang efektif untuk meningkatkan akurasi, efisiensi, serta
+keamanan prosedur venipuncture.
 </p>
 </section>
 
-<section id="implementasi" class="reveal">
-<h2>2. Implementasi Sistem</h2>
-<img src="images/diagram-alir-implementasi.png">
-<p class="caption">Diagram alir tahapan implementasi</p>
-
-<img src="images/arsitektur-sistem.png">
-<p class="caption">Arsitektur perangkat keras sistem</p>
-</section>
-
-<section id="algoritma" class="reveal">
-<h2>3. Pemrosesan Citra & Algoritma</h2>
-
-<img src="images/pipeline-algoritma.png">
-<p class="caption">Pipeline pemrosesan citra digital</p>
-
-<img src="images/confusion-matrix.png">
-<p class="caption">Confusion Matrix hasil segmentasi</p>
-
-<img src="images/grafik-training.png">
-<p class="caption">Grafik akurasi dan loss pelatihan</p>
-</section>
-
-<section id="analisis" class="reveal">
-<h2>4. Analisis Implementasi</h2>
-
-<img src="images/kurva-s.png">
-<p class="caption">Kurva S pengembangan proyek</p>
-
-<div class="stats">
-  <div class="stat">
-    <h3>95%</h3>
-    <p>Akurasi Deteksi</p>
-  </div>
-  <div class="stat">
-    <h3>850 nm</h3>
-    <p>Panjang Gelombang Optimal</p>
-  </div>
-  <div class="stat">
-    <h3>30 cm</h3>
-    <p>Jarak Akuisisi</p>
-  </div>
-  <div class="stat">
-    <h3>0.94</h3>
-    <p>Dice Coefficient</p>
-  </div>
-</div>
-</section>
-
-<section id="hasil" class="reveal">
-<h2>5. Hasil Akhir</h2>
-<img src="images/hasil-prototipe.png">
-<p class="caption">Prototipe akhir sistem deteksi vena</p>
+<section id="tujuan">
+<h2>2. Tujuan Proyek</h2>
 
 <p>
-Prototipe berhasil beroperasi secara stabil, portabel, dan cost-effective,
-dengan visualisasi vena yang jelas pada berbagai karakteristik subjek.
+Tujuan utama dari pengembangan sistem ini adalah merancang sebuah prototipe alat
+bantu visualisasi vena yang mampu beroperasi secara non-invasif, real-time, dan
+cost-effective. Sistem dirancang agar dapat digunakan sebagai pendukung prosedur
+medis tanpa memerlukan intervensi kompleks maupun pelatihan khusus.
+</p>
+
+<p>
+Secara khusus, tujuan proyek ini meliputi pengembangan sistem terintegrasi berbasis
+Raspberry Pi dan kamera NoIR, implementasi algoritma pemrosesan citra digital untuk
+meningkatkan kontras vena, serta analisis parameter optimal seperti panjang
+gelombang inframerah dan jarak akuisisi. Selain itu, proyek ini juga bertujuan untuk
+menghasilkan desain perangkat yang ergonomis dan mudah digunakan dalam lingkungan
+klinis.
+</p>
+</section>
+
+<section id="konsep">
+<h2>3. Konsep Sistem</h2>
+
+<p>
+Konsep dasar sistem deteksi pembuluh vena ini menggabungkan teknologi pencitraan
+inframerah dengan pemrosesan citra digital. Sistem menggunakan kamera NoIR sebagai
+sensor utama untuk menangkap citra inframerah, sementara sumber cahaya inframerah
+disediakan oleh array LED dengan panjang gelombang 660 nm dan 850 nm.
+</p>
+
+<p>
+Citra yang dihasilkan kemudian diproses oleh Raspberry Pi sebagai unit pemrosesan
+utama. Proses pemrosesan citra dilakukan secara bertahap untuk mengekstraksi
+informasi visual pembuluh vena dari latar belakang jaringan kulit. Pendekatan ini
+memungkinkan sistem menampilkan struktur vena dengan kontras yang lebih tinggi
+dibandingkan pengamatan visual konvensional.
+</p>
+</section>
+
+<section id="implementasi">
+<h2>4. Implementasi Sistem</h2>
+
+<p>
+Tahapan implementasi sistem dimulai dari integrasi perangkat keras, yang mencakup
+konfigurasi Raspberry Pi, pemasangan kamera NoIR, serta instalasi sumber pencahayaan
+inframerah. Seluruh komponen dirakit dalam satu kesatuan perangkat untuk memastikan
+stabilitas mekanis dan konsistensi hasil akuisisi citra.
+</p>
+
+<p>
+Pada sisi perangkat lunak, sistem dikembangkan menggunakan bahasa pemrograman Python
+dengan memanfaatkan library OpenCV. Pipeline pemrosesan citra diawali dengan
+konversi citra mentah ke format grayscale, dilanjutkan dengan penerapan median blur
+filter untuk reduksi noise, serta penggunaan Contrast Limited Adaptive Histogram
+Equalization (CLAHE) untuk meningkatkan kontras lokal citra.
+</p>
+
+<p>
+Implementasi dilakukan secara bertahap dan diuji pada berbagai kondisi untuk
+memastikan kestabilan sistem. Pengujian dilakukan dengan variasi jarak akuisisi dan
+panjang gelombang pencahayaan guna memperoleh konfigurasi optimal yang menghasilkan
+visualisasi vena paling jelas.
+</p>
+</section>
+
+<section id="analisis">
+<h2>5. Analisis dan Pembahasan</h2>
+
+<p>
+Hasil pengujian menunjukkan bahwa sistem memberikan performa terbaik pada penggunaan
+pencahayaan inframerah dengan panjang gelombang 850 nm dan jarak akuisisi 30 cm.
+Konfigurasi ini menghasilkan tingkat akurasi deteksi yang tinggi dengan latensi
+pemrosesan yang masih memungkinkan operasi hampir real-time.
+</p>
+
+<p>
+Analisis performa algoritma menunjukkan bahwa penerapan CLAHE secara signifikan
+meningkatkan kontras pembuluh vena, terutama pada subjek dengan pigmentasi kulit
+gelap dan indeks massa tubuh tinggi. Sistem juga menunjukkan stabilitas yang baik
+selama pengoperasian berkelanjutan tanpa degradasi performa yang signifikan.
+</p>
+</section>
+
+<section id="kesimpulan">
+<h2>6. Kesimpulan</h2>
+
+<p>
+Berdasarkan hasil perancangan, implementasi, dan pengujian, dapat disimpulkan bahwa
+sistem deteksi pembuluh vena berbasis citra inframerah ini berhasil diwujudkan
+sebagai prototipe fungsional yang mampu meningkatkan visualisasi vena secara
+non-invasif. Sistem ini memiliki potensi besar untuk diaplikasikan sebagai alat
+bantu medis dalam prosedur venipuncture.
+</p>
+
+<p>
+Pengembangan lebih lanjut dapat difokuskan pada integrasi kecerdasan buatan untuk
+segmentasi vena otomatis, peningkatan kecepatan pemrosesan, serta validasi klinis
+dengan jumlah subjek yang lebih besar guna memastikan keandalan sistem dalam
+lingkungan medis nyata.
 </p>
 </section>
 
 <footer>
-<p>© 2025 – Capstone Design Teknik Biomedis ITERA</p>
+<p>© 2025 – Capstone Design Teknik Biomedis | Institut Teknologi Sumatera</p>
 </footer>
-
-<script>
-function reveal() {
-  const reveals = document.querySelectorAll(".reveal");
-  reveals.forEach(el => {
-    const windowHeight = window.innerHeight;
-    const elementTop = el.getBoundingClientRect().top;
-    if (elementTop < windowHeight - 100) {
-      el.classList.add("active");
-    }
-  });
-}
-window.addEventListener("scroll", reveal);
-reveal();
-</script>
 
 </body>
 </html>
