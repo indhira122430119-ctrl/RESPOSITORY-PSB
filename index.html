@@ -8,6 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: 'Montserrat', sans-serif;
@@ -15,31 +17,41 @@ body {
   color: #333;
 }
 
+/* HERO / POSTER */
 header {
-  background: linear-gradient(rgba(0,0,0,.65), rgba(0,0,0,.65)),
+  min-height: 100vh;
+  background: linear-gradient(rgba(0,0,0,.7), rgba(0,0,0,.7)),
               url('images/hasil-prototipe.png') center/cover;
   color: white;
+  display: flex;
+  align-items: center;
   text-align: center;
-  padding: 90px 20px;
+  padding: 0 20px;
 }
 
-header h1 {
-  font-size: 2.8rem;
-  margin-bottom: 10px;
-}
-
-header p {
-  max-width: 900px;
+.hero {
+  max-width: 1000px;
   margin: auto;
-  font-size: 1.05rem;
 }
 
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* NAV */
 nav {
   background: #08375f;
   padding: 12px;
   text-align: center;
   position: sticky;
   top: 0;
+  z-index: 999;
 }
 
 nav a {
@@ -49,40 +61,71 @@ nav a {
   font-weight: 600;
 }
 
+/* SECTION */
 section {
   max-width: 1100px;
-  margin: 30px auto;
+  margin: 50px auto;
   background: white;
-  padding: 50px 30px;
-  border-radius: 10px;
+  padding: 60px 40px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+/* ANIMATION */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 h2 {
   color: #0f4c81;
-  margin-bottom: 20px;
+  font-size: 2rem;
 }
 
 img {
   width: 100%;
-  border-radius: 10px;
-  margin: 25px 0;
+  border-radius: 14px;
+  margin: 30px 0;
 }
 
 .caption {
   text-align: center;
-  font-size: 0.9rem;
+  font-size: .9rem;
   color: #666;
 }
 
-ul {
-  line-height: 1.8;
+/* HIGHLIGHT BOX */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.stat {
+  background: #08375f;
+  color: white;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.stat h3 {
+  font-size: 2rem;
+  margin: 0;
 }
 
 footer {
   background: #08375f;
   color: white;
   text-align: center;
-  padding: 25px;
+  padding: 30px;
 }
 </style>
 </head>
@@ -90,106 +133,114 @@ footer {
 <body>
 
 <header>
-  <h1>Sistem Deteksi Pembuluh Vena Manusia</h1>
-  <p>Berbasis Citra Inframerah dan Pemrosesan Digital Terintegrasi</p>
-  <p><strong>Capstone Design Teknik Biomedis</strong></p>
-  <p>
-    Indhira Dian Mustika (122430119) •  
-    Atha Azarine (122430046) •  
-    Axel Lerian Asriya  
-  </p>
+  <div class="hero reveal">
+    <h1>Sistem Deteksi Pembuluh Vena Manusia</h1>
+    <p>
+      Berbasis Citra Inframerah dan Pemrosesan Digital Terintegrasi<br>
+      <strong>Capstone Design Teknik Biomedis</strong>
+    </p>
+    <p>
+      Indhira Dian Mustika (122430119) •
+      Atha Azarine (122430046) •
+      Axel Lerian Asriya
+    </p>
+  </div>
 </header>
 
 <nav>
   <a href="#pengantar">Pengantar</a>
-  <a href="#tujuan">Tujuan</a>
   <a href="#implementasi">Implementasi</a>
   <a href="#algoritma">Algoritma</a>
   <a href="#analisis">Analisis</a>
-  <a href="#hasil">Hasil Akhir</a>
+  <a href="#hasil">Hasil</a>
 </nav>
 
-<section id="pengantar">
+<section id="pengantar" class="reveal">
 <h2>1. Pengantar</h2>
 <p>
-Proyek ini mengembangkan sistem deteksi pembuluh vena berbasis citra inframerah
-untuk membantu prosedur venipuncture secara non-invasif. Sistem ini dirancang
-untuk meningkatkan akurasi, mengurangi kegagalan tusukan, serta meningkatkan
-kenyamanan pasien.
+Sistem ini dikembangkan untuk membantu prosedur venipuncture
+dengan memvisualisasikan pembuluh vena secara non-invasif
+menggunakan pencitraan Near-Infrared (NIR).
 </p>
 </section>
 
-<section id="tujuan">
-<h2>2. Tujuan Proyek</h2>
-<ul>
-<li>Mengembangkan prototipe sistem visualisasi vena berbasis NIR</li>
-<li>Mengimplementasikan pemrosesan citra real-time</li>
-<li>Menganalisis parameter optimal panjang gelombang & jarak</li>
-<li>Mendesain casing ergonomis berbasis 3D printing</li>
-</ul>
-</section>
-
-<section id="implementasi">
-<h2>3. Implementasi Sistem</h2>
+<section id="implementasi" class="reveal">
+<h2>2. Implementasi Sistem</h2>
 <img src="images/diagram-alir-implementasi.png">
-<p class="caption">Diagram alir tahapan implementasi sistem</p>
-
-<p>
-Sistem menggunakan Raspberry Pi 5 sebagai unit pemrosesan utama,
-kamera NoIR sebagai sensor citra, serta array LED inframerah
-(660 nm dan 850 nm) sebagai sumber iluminasi.
-</p>
+<p class="caption">Diagram alir tahapan implementasi</p>
 
 <img src="images/arsitektur-sistem.png">
-<p class="caption">Arsitektur sistem perangkat keras</p>
+<p class="caption">Arsitektur perangkat keras sistem</p>
 </section>
 
-<section id="algoritma">
-<h2>4. Pemrosesan Citra & Algoritma</h2>
+<section id="algoritma" class="reveal">
+<h2>3. Pemrosesan Citra & Algoritma</h2>
 
 <img src="images/pipeline-algoritma.png">
 <p class="caption">Pipeline pemrosesan citra digital</p>
 
-<p>
-Algoritma meliputi konversi grayscale, median blur filter,
-dan CLAHE untuk meningkatkan kontras lokal vena.
-</p>
-
 <img src="images/confusion-matrix.png">
-<p class="caption">Confusion Matrix hasil pengujian segmentasi</p>
+<p class="caption">Confusion Matrix hasil segmentasi</p>
 
 <img src="images/grafik-training.png">
-<p class="caption">Grafik akurasi dan loss selama pelatihan model</p>
+<p class="caption">Grafik akurasi dan loss pelatihan</p>
 </section>
 
-<section id="analisis">
-<h2>5. Analisis Implementasi</h2>
+<section id="analisis" class="reveal">
+<h2>4. Analisis Implementasi</h2>
 
 <img src="images/kurva-s.png">
 <p class="caption">Kurva S pengembangan proyek</p>
 
-<p>
-Hasil analisis menunjukkan konfigurasi optimal menggunakan
-panjang gelombang 850 nm pada jarak 30 cm dengan akurasi hingga 95%.
-</p>
+<div class="stats">
+  <div class="stat">
+    <h3>95%</h3>
+    <p>Akurasi Deteksi</p>
+  </div>
+  <div class="stat">
+    <h3>850 nm</h3>
+    <p>Panjang Gelombang Optimal</p>
+  </div>
+  <div class="stat">
+    <h3>30 cm</h3>
+    <p>Jarak Akuisisi</p>
+  </div>
+  <div class="stat">
+    <h3>0.94</h3>
+    <p>Dice Coefficient</p>
+  </div>
+</div>
 </section>
 
-<section id="hasil">
-<h2>6. Hasil Akhir</h2>
-
+<section id="hasil" class="reveal">
+<h2>5. Hasil Akhir</h2>
 <img src="images/hasil-prototipe.png">
 <p class="caption">Prototipe akhir sistem deteksi vena</p>
 
 <p>
-Sistem berhasil beroperasi secara stabil, portabel, dan cost-effective.
-Hasil visualisasi vena menunjukkan peningkatan kontras signifikan
-pada berbagai karakteristik kulit dan BMI.
+Prototipe berhasil beroperasi secara stabil, portabel, dan cost-effective,
+dengan visualisasi vena yang jelas pada berbagai karakteristik subjek.
 </p>
 </section>
 
 <footer>
 <p>© 2025 – Capstone Design Teknik Biomedis ITERA</p>
 </footer>
+
+<script>
+function reveal() {
+  const reveals = document.querySelectorAll(".reveal");
+  reveals.forEach(el => {
+    const windowHeight = window.innerHeight;
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 100) {
+      el.classList.add("active");
+    }
+  });
+}
+window.addEventListener("scroll", reveal);
+reveal();
+</script>
 
 </body>
 </html>
