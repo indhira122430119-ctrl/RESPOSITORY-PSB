@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistem Deteksi Pembuluh Vena Berbasis Citra Inframerah</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Montserrat', Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f8;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                  url('header-bg.jpg') center/cover;
+      color: white;
+      padding: 70px 20px;
+      text-align: center;
+      position: relative;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 1.05rem;
+      margin: 6px 0;
+    }
+
+    nav {
+      background: #08375f;
+      padding: 10px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 12px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 8px;
+    }
+
+    h2 {
+      color: #0f4c81;
+    }
+
+    ul {
+      line-height: 1.8;
+    }
+
+    footer {
+      background: #08375f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>Sistem Deteksi Pembuluh Vena Manusia</h1>
+  <p>Berbasis Citra Inframerah dan Pemrosesan Digital Terintegrasi</p>
+  <p><strong>Capstone Design Teknik Biomedis</strong></p>
+  <p>
+    <strong>Indhira Dian Mustika (122430119)</strong><br>
+    <strong>Atha Azarine (122430046)</strong><br>
+    <strong>Axel Lerian Asriya</strong><br>
+    Program Studi Teknik Biomedis – Institut Teknologi Sumatera
+  </p>
+</header>
+
+<nav>
+  <a href="#pengantar">Pengantar</a>
+  <a href="#tujuan">Tujuan</a>
+  <a href="#konsep">Konsep Sistem</a>
+  <a href="#implementasi">Implementasi</a>
+  <a href="#analisis">Analisis</a>
+  <a href="#hasil">Hasil Akhir</a>
+</nav>
+
+<section id="pengantar">
+  <h2>1. Pengantar</h2>
+  <p>
+    Prosedur venipuncture (pengambilan darah) merupakan tindakan medis yang sering dilakukan,
+    namun masih menghadapi berbagai tantangan, khususnya pada pasien dengan akses vena yang sulit
+    seperti lansia, anak-anak, penderita obesitas, dan individu dengan pigmentasi kulit gelap.
+    Kegagalan dalam menemukan vena dapat menyebabkan tusukan berulang, meningkatkan risiko nyeri,
+    infeksi, serta ketidaknyamanan pasien.
+  </p>
+  <p>
+    Untuk mengatasi permasalahan tersebut, dikembangkan sistem deteksi pembuluh vena berbasis
+    pencitraan Near-Infrared (NIR) yang mampu memvisualisasikan vena secara non-invasif.
+    Sistem ini memanfaatkan perbedaan karakteristik absorpsi cahaya inframerah antara pembuluh
+    darah dan jaringan di sekitarnya.
+  </p>
+</section>
+
+<section id="tujuan">
+  <h2>2. Tujuan Proyek</h2>
+  <ul>
+    <li>Mengembangkan prototipe sistem deteksi vena berbasis citra inframerah.</li>
+    <li>Meningkatkan akurasi dan keberhasilan prosedur venipuncture.</li>
+    <li>Mengimplementasikan algoritma pemrosesan citra digital secara real-time.</li>
+    <li>Merancang casing ergonomis menggunakan teknologi 3D printing.</li>
+  </ul>
+</section>
+
+<section id="konsep">
+  <h2>3. Konsep Sistem</h2>
+  <p>
+    Sistem dirancang dengan Raspberry Pi 5 sebagai unit pemrosesan utama yang terhubung dengan
+    kamera NoIR dan array LED Near-Infrared (660 nm dan 850 nm). Cahaya NIR digunakan untuk
+    menembus jaringan kulit sehingga pembuluh vena dapat terlihat lebih jelas.
+  </p>
+  <p>
+    Citra yang dihasilkan diproses menggunakan algoritma pemrosesan citra digital berbasis Python
+    dan OpenCV, meliputi konversi grayscale, median blur filter, serta CLAHE
+    (Contrast Limited Adaptive Histogram Equalization) untuk meningkatkan kontras vena.
+  </p>
+</section>
+
+<section id="implementasi">
+  <h2>4. Implementasi Sistem</h2>
+  <ul>
+    <li>Integrasi perangkat keras (Raspberry Pi, kamera NoIR, LED NIR).</li>
+    <li>Instalasi dan konfigurasi Raspberry Pi OS serta library pendukung.</li>
+    <li>Implementasi algoritma pemrosesan citra digital.</li>
+    <li>Desain dan fabrikasi casing menggunakan 3D printing.</li>
+  </ul>
+  <p>
+    Sistem diuji pada berbagai kondisi pencahayaan dan karakteristik subjek untuk memastikan
+    kestabilan dan akurasi deteksi vena.
+  </p>
+</section>
+
+<section id="analisis">
+  <h2>5. Analisis Implementasi</h2>
+  <p>
+    Hasil pengujian menunjukkan bahwa panjang gelombang 850 nm pada jarak 30 cm memberikan
+    performa terbaik dengan akurasi deteksi hingga 95%. Analisis juga mencakup evaluasi
+    performa algoritma menggunakan metrik SSIM, PSNR, IoU, dan Dice Coefficient.
+  </p>
+</section>
+
+<section id="hasil">
+  <h2>6. Hasil Akhir</h2>
+  <p>
+    Prototipe sistem deteksi vena berhasil diwujudkan sebagai perangkat portabel, cost-effective,
+    dan ergonomis. Sistem mampu memvisualisasikan pembuluh vena secara jelas pada berbagai
+    karakteristik kulit dan indeks massa tubuh.
+  </p>
+  <p>
+    Sistem ini berpotensi dikembangkan lebih lanjut dengan integrasi kecerdasan buatan
+    dan augmented reality untuk aplikasi klinis yang lebih luas.
+  </p>
+</section>
+
+<footer>
+  <p>© 2025 | Capstone Design Teknik Biomedis – Institut Teknologi Sumatera</p>
+</footer>
+
+</body>
+</html>
